@@ -1,0 +1,154 @@
+react is our frontend library which means we cannot do backend work here
+like databases.
+
+We will use react mostly in api handling. Hum backend pe request denge
+then backend hume kuch data dega.
+
+appwrite - complete backend as a service - https://appwrite.io/
+
+tiny mce - text editor - https://www.tiny.cloud/docs/tinymce/latest/
+
+html react parser - The parser converts an HTML string to one or more React elements. - https://www.npmjs.com/package/html-react-parser
+
+react hook form - https://react-hook-form.com/
+
+*****************************************************************************************************
+
+react redux : npm install react-redux
+
+react router DOM : npm i react-router-dom
+
+appwrite installation : npm install appwrite@14.0.1
+
+tinymce installation : npm install @tinymce/tinymce-react
+
+html react parser : npm install html-react-parser
+
+react hook form : npm install react-hook-form
+
+*******************************************************************
+
+// ENV and Appwrite in React project
+
+Environment variables.
+
+// note: environment variables humesha root directory of project mai banate hai.
+file name= (.env) // here . is very important.....
+
+// note: if we are shifting the project in github or in public we hide this .env file to expose
+For github we can add this file to '.gitignore'
+Also for our reference we create a '.env.sample' for reference for ourself but the values for these variables we make empty.
+
+--- this method of creating environment variables is for Vite React.
+--- this will change for different methods eg: REACT_APP or Next.js or any other.
+
+VITE_APPWRITE_URL="test environment"  // here _APPWRITE_URL is name of variable
+import.meta.env.VITE_APPWRITE_URL   // // to use the variable
+
+---- In appwrite we create our project, database, database->collections, attributes, indexes
+In storage for storing images.
+
+// In the project we are exporting all the variables (in key-value form) from conf file.
+Before exporting we are converting them to String.
+src > conf > conf.js  // file name can be any.
+We want that these values are always used as strings otherwise numbers can cause problems.
+
+***********************************************************************************************************
+
+// Build authentication service with appwrite
+
+https://appwrite.io/docs/products/auth/quick-start
+
+If we dont want to create dependency on appwrite for our backend ie say if appwrite is not working, we dont want that we have to write the new code.
+For that we create services -- they are like classes exporting methods.
+
+So in project folder we are creating services related to appwrite so a new folder 'appwrite' is created.
+
+1. auth.js  --- authentication service
+
+folder: src > appwrite > auth.js
+
+***********************************************************************************************************
+
+// Appwrite database, file upload and custom queries
+
+2. config.js  --- database service
+
+folder: src > appwrite > config.js
+
+******************************************************************************************
+
+// How to configure redux toolkit in big projects
+
+folder: src / store / store.js
+
+First we configure store and tell it all the reducers.
+
+folder: src / store / authSlice.js
+
+folder: src / components / header / Header.jsx
+folder: src / components / footer / Footer.jsx
+
+folder: src / components / index.js
+-- is used to export header and footer component.
+
+folder: App.jsx
+-- jab bhi database se kuch lena ho toh hum ek loading state banate hai.
+
+folder: src / pages
+
+************************************************************************************************
+
+// Production grade react components
+
+folder: src / components / container / Container.jsx
+folder: src / components / footer / Footer.jsx
+folder: src / components / Logo.jsx
+folder: src / components / header / LogoutBtn.jsx
+folder: src / components / Button.jsx
+
+**********************************************************
+
+// How to use React hook form in production
+
+folder: src / components / Select.jsx
+
+react hook form: https://www.react-hook-form.com/get-started
+
+folder: src / components / PostCard.jsx
+folder: src / components / Login.jsx
+folder: src / components / Signup.jsx
+folder: src / components / AuthLayout.jsx
+
+For regular expression : https://regexr.com/
+
+*************************************************************
+
+// Adding form and slug values ----- watch again
+
+RTE = real time editor
+
+folder: src / components / RTE.jsx
+folder: src / components / post-form / PostForm.jsx
+
+****************************************************************
+
+// Building pages
+
+folder: src / pages / Signup.jsx
+folder: src / pages / Login.jsx
+folder: src / pages / AllPosts.jsx
+folder: src / pages / AddPost.jsx
+folder: src / pages / EditPost.jsx
+folder: src / pages / Home.jsx
+folder: src / pages / Post.jsx
+
+main.jsx
+
+*************************************************
+
+// CORS and debugging in React project
+
+
+
+

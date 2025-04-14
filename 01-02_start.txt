@@ -1,0 +1,174 @@
+******************************************************************************************************************************
+// how to install react
+
+1. open terminal
+2. type this:
+   npx create-react-app <project-name>
+
+3. change directory to the folder:
+   cd <project-name>
+ 
+ (in the folder "package.json" is the main file)
+
+5. check by writting [dir] for package.json folder.
+
+6. run your react app:
+   npm run start
+
+7. [npm run build]  // this build folder is served to the browser for execution.
+
+
+// react through vite ---- latest
+
+1. [npm create vite@latest]
+2. [cd --name--]
+3. [npm install]  // node modules wala folder bnta isse
+4. [npm run dev]  // to run your project
+
+********************************************************************************************************************
+
+// Understand the react flow and structure
+
+md - markdown file.
+
+Remember the basic --- JS ko HTML mai include krna hii padta hai, warna hum JS se HTML ko manipulate nhi kr sakte.
+
+In '01basicreact' folder -> public -> index.html
+This is the main index file which runs in browser.
+
+In '01basicreact' folder -> src -> index.js
+This is the main entry point for react.
+
+JSX -- allows to create custom tags like HTML tags in React.
+It allows developers to write HTML-like code within their JavaScript.
+It is used to create components in react.
+
+In src -> App.js 
+We are creating a function named 'App' and returning a HTML element.
+Then we export our component 'App'.
+This 'App' is rendered by index.js
+
+In 'vite' framework all components should be .jsx and component name should start with uppercase letter.
+
+we created a component named Chai..
+
+1. remember that we have to name the components in capital letter
+example: "Chai" in our example.
+--- if we name them in small letters they return errors
+
+2. also (optional but good practice) file name of these components should be in capital
+example: Chai.js or Chai.jsx
+--- no error if not capital letters
+
+3. some libraries force to name files in .jsx 
+example: vite react
+but there was no such restriction in basic react.
+
+In return () inside function we can return only one component or element.
+To return more than one, enclose the components inside 'fragments' ie <> </>
+
+React is called single page application because it has only one 'div' where we add and remove the components.
+
+***********************************************************************************************************************************
+
+// Create your own react library and JSX
+
+folder -> customReact
+
+// react mai bahut saari properties hoti like 
+React.createElement(
+  'a',  // tag
+  {href: 'https://google.com', target: '_Blank'},  // attributes
+  'click me to visit google'  // text
+)
+
+***********************************************************************************************************************************
+
+// Why you need hooks and project
+
+// project name = 02counter
+
+go to src:
+1. App.jsx --  
+2. main.jsx
+
+so UI updation ko react control krta hai..  // see App.jsx
+
+// this brings 'hooks' in react
+import { useState } from 'react'
+
+// useState is used to propagate the change in state to UI or DOM.
+// syntax - it returns an array
+// 0th index -- counter
+// 1st index -- function. Jaha bhi counter variable hoga uski state yeh function change kr dega.
+
+const [counter, setCounter]=useState(15);
+
+// from : https://www.w3schools.com/react/react_usestate.asp
+
+The React useState Hook allows us to track state in a function component.
+State generally refers to data or properties that need to be tracking in an application.
+
+import { useState } from "react";  // we are destructuring useState from react as it is a named export.
+
+We initialize our state by calling useState in our function component.
+useState accepts an initial state and returns two values:
+1. The current state.
+2. A function that updates the state.
+
+import { useState } from "react";
+
+function FavoriteColor() {
+  const [color, setColor] = useState("");  // destructuring the returned values from useState.
+}
+
+-- The first value, color, is our current state.
+-- The second value, setColor, is the function that is used to update our state.
+-- Lastly, we set the initial state to an empty string: useState("")
+
+The useState Hook can be used to keep track of strings, numbers, booleans, arrays, objects, and any combination of these!
+We could create multiple state Hooks to track individual values.
+
+*******************************************************************************
+
+// Virtual DOM, Fibre and reconciliation
+
+createRoot, behind the scenes DOM like structure create krta hai. Iss DOM ko khete hai virtual DOM.
+Fir yeh main DOM and apne (virtual) DOM ko compare krta hai. fir wohi cheezo ko update krta hai jo UI mai update huwi hai.ie
+Virtual DOM se Main DOM ko compare krta hai and dekhta hai kya changes hai then only those changes ko main DOM mai uodate krta hai.
+but browser pura DOM ko remove krta hai and fir se DOM banata hai. this is called page reload.
+So react saves page reload time with use of virtual DOM.
+
+
+ReactDOM.createRoot(document.getElementById('root')).
+render(
+    <React.StrictMode>
+    <App/>
+    </React.StrictMode>
+)
+
+React Fibre.
+link to read: https://github.com/acdlite/react-fiber-architecture
+
+**********************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

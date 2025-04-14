@@ -1,0 +1,22 @@
+// context api : https://react.dev/reference/react/useContext
+
+--> because of prop drilling it becomes difficult to pass a state into deeper nested components.
+So we use context API for that.
+
+* Yeh context api, react ke saath hii aata hai. So no need to include anything. 
+
+-----------------------------------------------------------------------------------
+// Other state management libraries:
+
+1. Redux,  2. react-Redux,  3. Redux Tookit,   4. Zustand
+-------------------------------------------------------------------------------------
+
+// context api
+means ek global variable bna rha hoon and uske andar saara data hai.
+context banane ke saath hum ek provider bhi bnate hai jo data provide krega.
+
+-------------------------------------------------------------------------------------------------
+
+// second project starts here
+
+index.css file mai add kiya code for darkmode

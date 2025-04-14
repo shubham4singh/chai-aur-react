@@ -1,0 +1,59 @@
+// react router crash course
+
+It is a third party library. It is not an essential core part of react.
+
+link: https://reactrouter.com/
+
+----------------------------------------------------------------------------------------------------------------------------
+
+// Installation
+
+npm i -D react-router-dom@latest
+
+----------------------------------------------------------------------------------------------------------------------------
+
+import {Link, NavLink} from 'react-router-dom'
+
+Here in react we use 'Link' instead of '<a>' tag because with '<a>' the full page reloads.
+In 'NavLink' we get some additional features.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+// In 'Header.jsx'
+
+<NavLink
+    className={({isActive}) =>
+    `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+    }
+>
+    Home
+</NavLink>
+
+We are writing class in callback. because we want to change css on user actions. Here we have a {isActive} which tells that we are active on that page.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// Footer.jsx
+// Home.jsx
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+// In 'main.jsx'
+
+    <RouterProvider router={router}/>
+
+    const router=createBrowserRouter([])
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+// In 'Layout.jsx'
+
+We want to keep our header and footer same and we want to change our body dynamically.
+
+------------------------------------------------------------------------------------------------------------------
+
+// Summary
+
+1. Layout.jsx ko hum outlet denge.
+2. main.jsx mai humne nesting ki hai Layout.jsx ke andar. Humne router banaya hai.

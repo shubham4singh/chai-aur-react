@@ -1,0 +1,46 @@
+// folder 06currencyConvertor
+
+we will create our own custom hook as we know hooks are nothing but functions.
+file: useCurrencyInfo.js
+
+we created a hook named "useCurrencyInfo".
+It is a good practice to start a hook name with "use"
+
+In API calls we usually get a string so we have to convert it to JSON.
+
+
+// our custom hook code:
+
+import {useEffect, useState} from "react"
+
+function useCurrencyInfo(currency){
+    const[data, setData]=useState({})
+
+    // useEffect takes a callback, a dependency array
+    useEffect(()=>{
+        fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
+        .then((res)=>res.json()) // here we are converting the response to .json
+        .then((res)=>setData(res[currency]))
+
+        // .then se hume callback milta hai response milta hai.
+        
+    }, [currency])
+
+    // currency ke andar jab bhi change ho toh hum "useEffect" ko call krna chahenge
+    // so dependency of "useEffect" is "currency"
+
+    console.log(data);
+    return data;
+}
+
+export default useCurrencyInfo;
+
+
+// our own component 'InputBox'
+
+-----------------------------------------------------------------------------------------------------
+
+Good practice to include all the components in a 'index.js' folder and export them from there.
+
+------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,51 @@
+// useEffect , useRef , useCallback
+
+// useCallback : https://www.w3schools.com/react/react_usecallback.asp
+// useEffect : 
+// useRef : 
+
+1. importing react hooks
+import { useState, useCallback, useEffect, useRef } from 'react'
+
+-> useCallback : returns a memoized callback function.
+It allows to cache a function definition between re-renders.
+The useCallback Hook only runs when one of its dependencies update.
+
+const memoizedCallback = useCallback(
+  () => {
+    // Function logic here
+  },
+  [dependencies]
+);
+
+If dependencies do not change, React returns the same function from the previous render, avoiding unnecessary function re-creation.
+If dependencies change, a new function is created.
+
+-> useEffect : Runs effects when dependencies change (e.g., regenerating passwords).
+runs the function whenever any of the dependencies change:
+
+Note: callBack sirf method ko optimize krta hai. but useEffect means if koi bhi dependency change hoti then uss function ko fir se run kro.
+
+
+-> useRef : allows you to persist values between renders.
+In React, when a component re-renders (due to state changes, props updates, etc.), all variables and functions inside the component are typically re-initialized. This means their values are reset.
+However, the useRef Hook allows you to store a value in its .current property that does not get reset between renders. This makes it useful for keeping track of values or references that need to persist across multiple renders without causing a re-render themselves.
+
+// jab bhi mujhe kisi ka reference lena hai then we use 'useRef'
+
+2. Using useRef for Copying Password
+const passwordRef = useRef(null);
+
+passwordRef is used to reference the input field, making it easy to select and copy the generated password.
+
+
+3. Copy Password to Clipboard
+const copyPasswordToClipboard = useCallback(() => {
+  passwordRef.current?.select();
+  passwordRef.current?.setSelectionRange(0, 3);
+  window.navigator.clipboard.writeText(password);
+}, [password]);
+
+passwordRef.current?.select(); → Selects the whole password.
+passwordRef.current?.setSelectionRange(0, 3); → User sees only the first 3 characters selected (for UX effect).
+window.navigator.clipboard.writeText(password); → Copies password to clipboard.

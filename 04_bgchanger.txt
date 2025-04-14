@@ -1,0 +1,73 @@
+// building a react project
+// folder - 04bgChanger
+
+step1: install vite react
+step2: install tailwind
+
+1.
+npm install tailwindcss @tailwindcss/vite
+
+2. in vite.config
+import tailwindcss from '@tailwindcss/vite'
+
+tailwindcss()
+
+3. @import "tailwindcss";
+
+//-----------------------------------------------------------
+
+1. Imports
+// useState is imported from React to manage the state.
+import { useState } from 'react'
+
+2. Component: App
+. useState("olive") initializes the color state with "olive".
+. color holds the current background color.
+. setColor is used to update color.
+
+3. 
+<div className="w-full h-screen duration-200"
+  style={{ backgroundColor: color }}
+>
+
+// A full-screen div (w-full h-screen) with smooth transition (duration-200).
+// style={{ backgroundColor: color }} dynamically sets the background color based on the color state.
+
+4. Button Container
+<div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
+
+// A div fixed at the bottom (bottom-12 inset-x-0).
+// Uses flex to align buttons properly.
+
+5. buttons
+<button
+  onClick={()=>setColor("red")}
+  className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
+  style={{ backgroundColor: "red" }}
+>Red</button>
+
+// onClick={() => setColor("red")} updates color to "red".
+// style={{ backgroundColor: "red" }} gives the button its color.
+. outline-none: Removes button outline.
+. px-4 py-1: Adds padding.
+. rounded-full: Makes the button rounded.
+. text-white: Sets text color to white.
+. shadow-lg: Adds shadow.
+
+
+onClick={setColor("red)}
+"onClick" ko function chaiye but here we are giving the returned value from "setColor" function.
+
+link: https://www.w3schools.com/react/react_usestate.asp
+What is useState?
+useState is a React Hook that allows functional components to manage state. State refers to data that can change within a component and trigger a re-render of the UI when updated.
+
+const [state, setState] = useState(initialValue);
+
+state: This holds the current value of the state.
+setState: This is a function that updates the state.
+useState(initialValue): Takes an initial value and returns an array with the state and the function to update it.
+
+When to Use useState?
+✅ When you need dynamic data that changes (e.g., toggles, counters, form inputs).
+✅ When you want to update the UI based on user interactions.

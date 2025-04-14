@@ -1,0 +1,99 @@
+// folder - 03tailwindprops
+tailwind: https://tailwindcss.com/
+
+step1: npm install tailwindcss @tailwindcss/vite
+// dependencies are installed.. see package.json
+
+step2: go to 'vite.config.js'
+// Add the @tailwindcss/vite plugin to your Vite configuration.
+
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+
+// in my original file 
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(),   tailwindcss(),],
+
+})
+
+step3: @import tailwind css
+// go to index.css
+// remove everything and paste this.
+
+@import "tailwindcss";
+
+
+step4:test this code
+// App.jsx mai daal ke dekho yeh code.
+// we know that App.jsx mai saara kaam hota hai.
+
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+
+
+********************************************************************************************
+// when we use tailwind in react remember:
+always close the tags in it.
+example: close the <img> tag in react.
+
+********************************************************************************************
+// we create a 'Card' component of ours.
+
+// we can give default values like this using ||
+<p>{props.channel || "default channel name"}</p>
+
+// or we can also give like this
+function Card({username="sachin phartiyal"}){ 
+    console.log(username) 
+}
+
+********************************************************************************************
+// A react interview question on counter
+
+suppose in function App of counter project
+
+const addValue=()=>{
+  setCounter(counter=counter+1);
+  setCounter(counter=counter+1);
+  setCounter(counter=counter+1);
+  setCounter(counter=counter+1);
+}
+
+Since React batches state updates for performance reasons, all these setCounter calls are processed together, 
+and only the last value (4) is applied. As a result, the counter only increases by 1 instead of 4.
+
+By passing a function to setCounter, React ensures that each call receives the most up-to-date state value (prevCounter).
+
+const addValue=()=>{
+  setCounter((prevCounter)=>prevCounter+1)
+  setCounter((prevCounter)=>prevCounter+1)
+  setCounter((prevCounter)=>prevCounter+1)
+  setCounter((prevCounter)=>prevCounter+1)
+}
+
+When you pass a function to a state updater like setCounter, React automatically calls that function with the current state value as its argument.
+The prev variable (or prevCounter in the example) is not something you create explicitly. It is provided by React when you use the functional 
+form of the state updater function (setCounter in this case).
+
+************************************************************************
+// You dont need state for this
+
+https://www.youtube.com/watch?v=P4X0vPTQX4A&ab_channel=ChaiaurCode
+
+************************************************************************
+// Testing your datatype skills in react interviews
+
+
+

@@ -1,0 +1,57 @@
+// Redux toolkit crash course
+// folder - 11redux-toolkit-todo
+
+redux -> independent state management library
+(react-redux) : It allows React components to interact with a Redux store, enabling them to read state and dispatch actions.
+(redux-toolkit) : the officially recommended toolset for writing Redux logic, simplifying common tasks and preventing mistakes, offering a more efficient and streamlined approach to Redux development. 
+
+// chrome extension : redux devtools
+
+// concepts of redux / redux-toolkit
+
+1. store : the central container that holds the entire application state, acting as a single source of truth, 
+and is updated by dispatching actions, which trigger the root reducer to calculate the new state. 
+
+2. reducers : Redux uses a reducer function to take the current state and an action, and return a new state 
+
+3. useSelector : a React hook that allows you to access data from the Redux store within your functional components.
+
+4. useDispatch : allows functional components to dispatch actions to the Redux store.
+
+// installation of redux toolkit
+
+npm install @reduxjs/toolkit
+npm install react-redux
+
+// Documentation Points :: https://redux-toolkit.js.org/introduction/getting-started
+
+1. configureStore(): 
+-- in folder src / app / store.js
+here we created our store.
+
+import {configureStore} from '@reduxjs/toolkit'
+
+2. createReducer():
+-- redux toolkit mai we call it slices.
+-- in folder src / features / todo / todoSlice.js
+
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+
+.. nanoid generates a unique id.
+.. store ke under imp hota initial state ie store starting mai kaisa dikhega?
+
+*************************************************************
+
+in 'todoSlice.js'
+-- addTodo: hum ne data kaise lena hai
+-- removeTodo: hum ne data kaise send krna hai
+
+**************************************************************
+// App.jsx
+// main.jsx
+
+
+
+
+
+
